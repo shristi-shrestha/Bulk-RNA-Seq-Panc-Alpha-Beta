@@ -5,10 +5,8 @@ library(reshape2)
 library(tidyverse)
 
 #expression data
-exp<- read.csv("DATA/Normalized_Expression_Values.csv",header = TRUE)
-subset<-exp[,c(2,4:13)]
-rownames(subset)<-make.names(subset$Gene.Symbol, unique=TRUE)
-subset<-subset[,-1]
+exp<- read.csv("DATA/Normalized_Expression_Values.csv",header = TRUE, row.names = 1)
+subset<-exp[,c(3:12)]
 
 ui<-fluidPage(#theme = shinytheme("spacelab"),
   #titlePanel(title=div(img(src="logo-4.png", height=150, width=450))),
@@ -49,7 +47,7 @@ server<-function(input, output) {
     theme(axis.title = element_text(size = 14, face = "bold",colour = "black"), 
           axis.text = element_text(size = 12, colour = "gray20", vjust = 0.25), 
           axis.text.x = element_text(size = 10, colour = "black")) +
-    labs(x = "Samples", y = "log2 TMM normalized expression") + theme(plot.subtitle = element_text(size = 1), 
+    labs(x = "Samples", y = "TMM normalized expression") + theme(plot.subtitle = element_text(size = 1), 
                                                 axis.line = element_line(linetype = "solid"), 
                                                 axis.ticks = element_line(size = 0.8), 
                                                 panel.grid.minor = element_line(linetype = "blank"), 
