@@ -6,4 +6,4 @@ This repository contains R scripts for R shiny web application to browse visuals
 
 ## Installation
 
-The web app can be accessed at ... or the web app can run locally through app.R
+The web app can be accessed at https://shristishrestha.shinyapps.io/Bulk-RNA-Seq-Alpha-Beta/ or the web app can run locally through app.R
