@@ -5,11 +5,10 @@ library(reshape2)
 library(tidyverse)
 
 #expression data
-exp<- read.csv("DATA/Normalized_Expression_Values.csv",header = TRUE, row.names = 1)
-subset<-exp[,c(3:12)]
+exp <- read.csv("DATA/Normalized_Expression_Values.csv",header = TRUE, row.names = 1)
+subset <- exp[,c(3:12)]
 
-ui<-fluidPage(#theme = shinytheme("spacelab"),
-  #titlePanel(title=div(img(src="logo-4.png", height=150, width=450))),
+ui <- fluidPage(
   titlePanel(h1(id="big-heading", "Bulk RNA gene expression human pancreatic islets/FACS-sorted Alpha and Beta cells" )),
   tags$style(HTML("#big-heading{color: #4292C6;
                   font-style: Avenir Light;}")),
@@ -29,17 +28,16 @@ ui<-fluidPage(#theme = shinytheme("spacelab"),
 
   ))
 
-server<-function(input, output) {
-  output$plot1<- renderPlot({
+server <- function(input, output) {
+  output$plot1 <- renderPlot({
   req(input$Gene)
   
-  sub<-subset[toupper(input$Gene),]
+  sub <- subset[toupper(input$Gene),]
   
   
   # tidy it using reshape2 package
   ss <- melt(sub, variable.name = "sample")
-  ss$celltype <-c(rep("Alpha",5),rep("Beta",5))
-  #ss$value<-log(ss$value,2)
+  ss$celltype <- c(rep("Alpha",5),rep("Beta",5))
   
   ggplot(ss, aes(x = sample, y = value, fill=celltype)) + 
     geom_bar(stat="identity",colour = "black", width = 0.8) + 
