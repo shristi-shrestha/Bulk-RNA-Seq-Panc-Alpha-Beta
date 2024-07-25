@@ -1,0 +1,14 @@
+name: Bulk-RNA-Seq-Alpha-Beta
+title: Bulk-RNA-Seq-Alpha-Beta
+username:
+account: shristishrestha
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5026097
+bundleId: 5203641
+url: https://shristishrestha.shinyapps.io/Bulk-RNA-Seq-Alpha-Beta/
+when: 1635871578.36029
+lastSyncTime: 1635871578.3603
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: DATA/Normalized Expression Values_25NEV.xlsx|README.md
